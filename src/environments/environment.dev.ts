@@ -1,7 +1,7 @@
 export const environment = {
-  production: true,
-  name :'prod',
-    firebase: {
+  production: false,
+  name :'dev',
+  firebase: {
     Config :{
       apiKey: "ROTATE_THIS_KEY_REMOVED_FROM_HISTORY",
       authDomain: "edificacion-app-97835.firebaseapp.com",
