@@ -42,7 +42,7 @@ export class AppComponent implements OnInit{
   }
 
   onFilesChanged(urls: string | string[]) : void {
-    console.log(urls);
+    console.log('urls',urls);
   }
 
   // onSuccess() : void {
