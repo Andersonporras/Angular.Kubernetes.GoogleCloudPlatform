@@ -17,7 +17,7 @@ import { environment } from '../environments/environment';
 import { IndicatorsModule } from './shared/indicators/spinner';
 import { PopupsModule } from './shared/popups';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-//import { NotificationModule } from './services';
+import { NotificationModule } from './Services';
 
 import {MatSidenavModule } from '@angular/material/sidenav';
 import {MatToolbarModule } from '@angular/material/toolbar';
@@ -33,6 +33,8 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 //import {reducers, effects } from './store';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HeaderComponent } from './components/header/header.component';
+import { MenuListComponent } from './components/menu-list/menu-list.component';
 //import { AuthInterceptor } from './auth-interceptor';
 
 const StoreDevtools = !environment.production ? StoreDevtoolsModule.instrument({maxAge: 50}) : [];
@@ -40,6 +42,8 @@ const StoreDevtools = !environment.production ? StoreDevtoolsModule.instrument({
 @NgModule({
   declarations: [
     AppComponent,
+    HeaderComponent,
+    MenuListComponent,
     // MenuListComponent,
     // HeaderComponent,
   ],
@@ -59,7 +63,7 @@ const StoreDevtools = !environment.production ? StoreDevtoolsModule.instrument({
     IndicatorsModule,
     BrowserAnimationsModule,
     PopupsModule,
-    //NotificationModule.forRoot(),
+    NotificationModule.forRoot(),
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
