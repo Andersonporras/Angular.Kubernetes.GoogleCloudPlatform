@@ -1,1 +1,94 @@
-<p>registration works!</p>
+<!-- <app-spinner *ngIf="loading$ | async"></app-spinner> -->
+
+<section fxLayoutAlign="center">
+  <mat-card>
+    <form
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      fxLayoutGap="10px"
+      #f="ngForm"
+      (ngSubmit)="registrarUsuario(f)"
+    >
+      <mat-form-field>
+        <mat-label>Enter Name</mat-label>
+        <input type="text" matInput placeholder="EnterName" name="name" ngModel required />
+        <mat-error>You must enter a name</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Enter your last names</mat-label>
+        <input
+          type="text"
+          ngModel
+          name="lastname"
+          required
+          placeholder="Enter your last names"
+          matInput
+        />
+        <mat-error>You must enter last name</mat-error>
+      </mat-form-field>
+
+      <mat-form-field>
+       <mat-label>Enter User Name</mat-label>
+       <input
+         type="text"
+         ngModel
+         name="username"
+         required
+         placeholder="Enter User Name"
+         matInput
+       />
+       <mat-error>You must enter an username</mat-error>
+     </mat-form-field>
+
+      <mat-form-field>
+       <mat-label>Enter Number Phone</mat-label>
+       <input
+         type="text"
+         ngModel
+         name="numberphone"
+         required
+         placeholder="Enter Number Phone"
+         matInput
+       />
+       <mat-error>You must Enter the Number Phone</mat-error>
+     </mat-form-field>
+
+
+      <mat-form-field>
+        <mat-label>Enter an E-Mail</mat-label>
+        <input type="email" matInput placeholder="E-Mail" name="email" ngModel required />
+        <mat-error>You must enter an E-Mail</mat-error>
+
+        <!-- <mat-error *ngIf="emailInput.hasError('required')"
+         >El email no puede estar en blanco</mat-error
+       >
+       <mat-error *ngIf="!emailInput.hasError('required')"
+         >El email es invalido</mat-error
+       > -->
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Enter Password</mat-label>
+        <input type="password" matInput placeholder="Password" name="password" ngModel required    minlength="7" />
+       <mat-error>The password must be at least 7 characters long</mat-error>
+      </mat-form-field>
+
+      <mat-form-field hintLabel="The password must be at least 7 characters long">
+       <mat-label>Confirm Password</mat-label>
+       <input
+         type="password"
+         matInput
+         placeholder="Confirm Password"
+         ngModel
+         name="passwordConfirm"
+         required
+         minlength="7"
+       />
+       <mat-error>The password must be at least 7 characters long</mat-error>
+     </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Send</button>
+    </form>
+  </mat-card>
+</section>

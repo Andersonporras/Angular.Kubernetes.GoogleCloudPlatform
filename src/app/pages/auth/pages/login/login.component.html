@@ -1,4 +1,4 @@
-<!-- <app-spinner *ngIf="loading$ | async"></app-spinner>
+<!-- <app-spinner *ngIf="loading$ | async"></app-spinner> -->
 
 <section fxLayoutAlign="center">
   <mat-card>
@@ -10,16 +10,18 @@
        (ngSubmit)="loginUsuario(f)"
     >
       <mat-form-field>
-         <mat-label>Ingrese E-Mail</mat-label>
+         <mat-label>Enter an E-Mail</mat-label>
          <input type="email" matInput placeholder="E-Mail" name="email" ngModel required>
-         <mat-error>Debe ingresar un E-Mail</mat-error>
+         <mat-error>You must enter an E-Mail</mat-error>
       </mat-form-field>
+
       <mat-form-field>
-       <mat-label>Ingrese Password</mat-label>
+       <mat-label>Enter Password</mat-label>
        <input type="password" matInput placeholder="Password" name="password" ngModel required>
-       <mat-error>Debe ingresar un password</mat-error>
+       <mat-error>You must Enter a Password</mat-error>
     </mat-form-field>
-    <button mat-raised-button color="primary" type="submit">Enviar</button>
+
+    <button mat-raised-button color="primary" type="submit">Send</button>
     </form>
  </mat-card>
-</section> -->
+</section>
