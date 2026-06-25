@@ -1,17 +1,17 @@
 <mat-sidenav-container>
 
   <mat-sidenav #menu>
-    <app-menu-list (menuToggle)="menu.toggle()" (signOut)="onSignOut()"
-    [isAuthorized] = "isAuthorized$ | async"
-    ></app-menu-list>
-    <p>Object Sidenav</p>
+    <!-- <app-menu-list (menuToggle)="menu.toggle()" (signOut)="onSignOut()"
+    [isAuthorized] = "isAuthorized"
+    ></app-menu-list> -->
+        <app-menu-list (menuToggle)="menu.toggle()"></app-menu-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <app-header (menuToggle)="menu.toggle()"
-    /* //[isAuthorized] = "isAuthorized$ | async"
-   // [user] = "user$ | async" */
-    (signOut)="onSignOut()"></app-header>
+    <!-- <app-header (menuToggle)="menu.toggle()"
+    (signOut)="onSignOut()"></app-header> -->
+
+    <app-header (menuToggle)="menu.toggle()"></app-header>
     <main>
       <router-outlet></router-outlet>
     </main>

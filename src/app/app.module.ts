@@ -23,18 +23,16 @@ import {MatSidenavModule } from '@angular/material/sidenav';
 import {MatToolbarModule } from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 
-//import { MenuListComponent } from './components/menu-list/menu-list.component';
+import { MenuListComponent } from './Components/menu-list/menu-list.component';
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
-//import { HeaderComponent } from './components/header/header.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 //import {reducers, effects } from './store';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HeaderComponent } from './components/header/header.component';
-import { MenuListComponent } from './components/menu-list/menu-list.component';
+import { HeaderComponent } from './Components/header/header.component';
 //import { AuthInterceptor } from './auth-interceptor';
 
 const StoreDevtools = !environment.production ? StoreDevtoolsModule.instrument({maxAge: 50}) : [];
@@ -44,8 +42,6 @@ const StoreDevtools = !environment.production ? StoreDevtoolsModule.instrument({
     AppComponent,
     HeaderComponent,
     MenuListComponent,
-    // MenuListComponent,
-    // HeaderComponent,
   ],
   imports: [
     FlexLayoutModule,
