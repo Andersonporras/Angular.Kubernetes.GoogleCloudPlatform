@@ -30,7 +30,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-//import {reducers, effects } from './store';
+import {reducers, effects } from './store';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderComponent } from './Components/header/header.component';
 //import { AuthInterceptor } from './auth-interceptor';
@@ -47,12 +47,12 @@ const StoreDevtools = !environment.production ? StoreDevtoolsModule.instrument({
     FlexLayoutModule,
     BrowserModule,
     AppRoutingModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase.Config)),
+    provideFirebaseApp(() => initializeApp(environment.firebase.config)),
     provideFirestore( () => getFirestore()),
     provideStorage(() => getStorage()),
     provideAuth(() => getAuth()),
 
-    AngularFireModule.initializeApp(environment.firebase.Config),
+    AngularFireModule.initializeApp(environment.firebase.config),
     AngularFireStorageModule,
     AngularFireStorageModule,
     AngularFireAuthModule,
@@ -66,14 +66,14 @@ const StoreDevtools = !environment.production ? StoreDevtoolsModule.instrument({
     MatListModule,
     MatButtonModule,
     StoreDevtools,
-    // StoreModule.forRoot(reducers, {
-    //   runtimeChecks: {
-    //     strictActionImmutability: true,
-    //     strictStateImmutability: true
-    //   }
-    // }),
-    // EffectsModule.forRoot(effects),
-    // HttpClientModule,
+    StoreModule.forRoot(reducers, {
+     runtimeChecks: {
+        strictActionImmutability: true,
+        strictStateImmutability: true
+      }
+    }),
+     EffectsModule.forRoot(effects),
+     HttpClientModule,
   ],
   // providers: [
   //   {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
