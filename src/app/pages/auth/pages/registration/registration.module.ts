@@ -12,7 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import {MatCardModule} from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
-//import { SpinnerModule } from '@app/shared/indicators';
+import { SpinnerModule } from '@app/shared/indicators/spinner';
 
 
 @NgModule({
@@ -30,8 +30,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatIconModule,
     MatInputModule,
     MatCardModule,
-    FlexLayoutModule
-   // SpinnerModule
+    FlexLayoutModule,
+    SpinnerModule
 
   ]
 })

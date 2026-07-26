@@ -1,4 +1,4 @@
-<!-- <app-spinner *ngIf="loading$ | async"></app-spinner> -->
+<app-spinner *ngIf="loading$ | async"></app-spinner>
 
 <section fxLayoutAlign="center">
   <mat-card>
@@ -11,7 +11,7 @@
     >
       <mat-form-field>
         <mat-label>Enter Name</mat-label>
-        <input type="text" matInput placeholder="EnterName" name="name" ngModel required />
+        <input type="text" matInput placeholder="EnterName" name="nombre" ngModel required />
         <mat-error>You must enter a name</mat-error>
       </mat-form-field>
 
@@ -20,7 +20,7 @@
         <input
           type="text"
           ngModel
-          name="lastname"
+          name="apellidos"
           required
           placeholder="Enter your last names"
           matInput
@@ -46,7 +46,7 @@
        <input
          type="text"
          ngModel
-         name="numberphone"
+         name="telefono"
          required
          placeholder="Enter Number Phone"
          matInput
@@ -70,11 +70,20 @@
 
       <mat-form-field>
         <mat-label>Enter Password</mat-label>
-        <input type="password" matInput placeholder="Password" name="password" ngModel required    minlength="7" />
-       <mat-error>The password must be at least 7 characters long</mat-error>
+        <input
+          type="password"
+          matInput
+          placeholder="Password"
+          name="password"
+          ngModel
+          required
+          minlength="7"
+          pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).+"
+        />
+       <mat-error>Password must be 7+ characters and include an uppercase letter, a lowercase letter, a number and a symbol</mat-error>
       </mat-form-field>
 
-      <mat-form-field hintLabel="The password must be at least 7 characters long">
+      <mat-form-field hintLabel="Password must be 7+ characters and include an uppercase letter, a lowercase letter, a number and a symbol">
        <mat-label>Confirm Password</mat-label>
        <input
          type="password"
@@ -84,8 +93,9 @@
          name="passwordConfirm"
          required
          minlength="7"
+         pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).+"
        />
-       <mat-error>The password must be at least 7 characters long</mat-error>
+       <mat-error>Password must be 7+ characters and include an uppercase letter, a lowercase letter, a number and a symbol</mat-error>
      </mat-form-field>
 
       <button mat-raised-button color="primary" type="submit">Send</button>

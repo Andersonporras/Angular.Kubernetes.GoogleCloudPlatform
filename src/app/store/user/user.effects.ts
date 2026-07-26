@@ -23,6 +23,14 @@ export class UserEffects {
     private notification: NotificationService
   ) { }
 
+  private getErrorMessage(err: any, fallback: string): string {
+    const errores = err?.error?.errores;
+    if (typeof errores === 'string') {
+      return errores;
+    }
+    return errores?.mensaje ?? fallback;
+  }
+
   signUpEmail: Observable<Action> = createEffect(() =>
     this.actions.pipe(
       ofType(fromActions.Types.SIGN_UP_EMAIL),
@@ -39,7 +47,7 @@ export class UserEffects {
 
             catchError(err => {
 
-              this.notification.error("Errores al registrar nuevo usuario");
+              this.notification.error(this.getErrorMessage(err, 'Errores al registrar nuevo usuario'));
               return of(new fromActions.SignUpEmailError(err.message))
 
             })
@@ -66,7 +74,7 @@ export class UserEffects {
             //catchError(err => of(new fromActions.SignInEmailError(err.message)))
             catchError(err => {
 
-              this.notification.error("Credenciales incorrectas");
+              this.notification.error(this.getErrorMessage(err, 'Credenciales incorrectas'));
               return of(new fromActions.SignInEmailError(err.message))
 
             })

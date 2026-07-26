@@ -33,7 +33,7 @@ import { EffectsModule } from '@ngrx/effects';
 import {reducers, effects } from './store';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderComponent } from './Components/header/header.component';
-//import { AuthInterceptor } from './auth-interceptor';
+import { AuthInterceptor } from './auth-interceptor';
 
 const StoreDevtools = !environment.production ? StoreDevtoolsModule.instrument({maxAge: 50}) : [];
 
@@ -75,10 +75,9 @@ const StoreDevtools = !environment.production ? StoreDevtoolsModule.instrument({
      EffectsModule.forRoot(effects),
      HttpClientModule,
   ],
-  // providers: [
-  //   {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
-  // ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
