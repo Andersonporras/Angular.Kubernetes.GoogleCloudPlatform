@@ -1,10 +1,11 @@
 import { Component, OnInit, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import {AngularFireStorage, AngularFireUploadTask} from '@angular/fire/compat/storage';
 import { UploadTaskSnapshot } from '@angular/fire/storage';
+import { NotificationService } from '@app/Services';
 
 import {Observable, Subject, lastValueFrom} from 'rxjs';
 
-import {finalize, takeUntil} from 'rxjs/operators';
+import {takeUntil} from 'rxjs/operators';
 
 
 @Component({
@@ -25,9 +26,14 @@ export class UploadComponent implements OnInit, OnDestroy {
 
   downloadURL !: string;
 
+  uploadError !: string;
+
   private destroy = new Subject<void>();
 
-  constructor(private storage: AngularFireStorage) { }
+  constructor(
+    private storage: AngularFireStorage,
+    private notification: NotificationService
+  ) { }
 
   ngOnInit(): void {
     this.startUpload();
@@ -45,13 +51,18 @@ export class UploadComponent implements OnInit, OnDestroy {
       this.snapshot$ = this.task.snapshotChanges() as Observable<UploadTaskSnapshot | undefined>
 
       this.snapshot$.pipe(
-        takeUntil(this.destroy),
-        finalize(async () => {
+        takeUntil(this.destroy)
+      ).subscribe({
+        error: (err) => {
+          this.uploadError = err?.message || 'Error subiendo el archivo';
+          this.notification.error(`Error subiendo ${this.file.name}: ${this.uploadError}`);
+        },
+        complete: async () => {
           const storageRefObservable$ = storageRef.getDownloadURL();
           this.downloadURL = await lastValueFrom(storageRefObservable$);
           this.completed.next(this.downloadURL);
-        })
-      ).subscribe();
+        }
+      });
 
   }
 
