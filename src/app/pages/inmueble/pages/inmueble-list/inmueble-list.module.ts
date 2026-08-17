@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { InmuebleListRoutingModule } from './inmueble-list-routing.module';
 import { InmuebleListComponent } from './inmueble-list.component';
+import { SpinnerModule } from '@app/shared/indicators/spinner';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -11,7 +14,10 @@ import { InmuebleListComponent } from './inmueble-list.component';
   ],
   imports: [
     CommonModule,
-    InmuebleListRoutingModule
+    InmuebleListRoutingModule,
+    SpinnerModule,
+    MatButtonModule,
+    MatCardModule
   ]
 })
 export class InmuebleListModule { }
