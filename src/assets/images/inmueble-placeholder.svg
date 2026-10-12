@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="220" viewBox="0 0 400 220">
+  <rect width="400" height="220" fill="#ede7f6"/>
+  <g fill="none" stroke="#673ab7" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M150 112 L200 70 L250 112"/>
+    <path d="M162 102 V150 H238 V102"/>
+    <path d="M190 150 V124 H210 V150"/>
+  </g>
+  <text x="200" y="185" text-anchor="middle" font-family="Roboto, Arial, sans-serif" font-size="16" fill="#673ab7">Sin imagen disponible</text>
+</svg>

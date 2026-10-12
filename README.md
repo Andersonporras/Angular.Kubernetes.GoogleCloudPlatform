@@ -1,4 +1,4 @@
-# Inmuebles App — Angular Frontend
+# Edificaciones Store — Angular Frontend
 
 🇪🇸 [Leer en español](README.es.md)
 
@@ -6,12 +6,18 @@ A real-estate listings web app built with **Angular**. Users create an account, 
 
 This is a learning project. I built it to practice the patterns used in medium and large Angular apps: NgRx state management, lazy-loaded modules, route guards, HTTP interceptors and file uploads to the cloud.
 
+## Screenshots
+
+![Property list](docs/screenshots/list.png)
+
+![Welcome page](docs/screenshots/welcome.png)
+
 ## Features
 
 - **Authentication**: registration and login against the REST API. The JWT is stored and attached to every request by an HTTP interceptor.
 - **Route protection**: `AuthGuard` blocks private pages for anonymous users, and `UnauthGuard` keeps signed-in users out of login and registration.
 - **Properties**: list all properties and create a new one through a validated form.
-- **Image upload**: a reusable upload dialog (opened by a directive) with optional image cropping, which stores files in Firebase Storage and returns the public URL.
+- **Image upload**: a reusable upload dialog (opened by a directive) with optional image cropping, which stores files in Firebase Storage and returns the public URL. If a photo is missing or fails to load, a local placeholder image is shown.
 - **UI**: Angular Material, a responsive side menu, a loading spinner, toast notifications and a 404 page.
 
 ## Tech stack
@@ -77,8 +83,8 @@ The backend API must be running at the configured URL for login and properties t
 The `Dockerfile` builds the app with Node 16 and serves the static output with nginx. `nginx.conf` sends every route to `index.html` so Angular routing works on page reload.
 
 ```bash
-docker build -t inmuebles-app .
-docker run -p 8080:80 inmuebles-app   # http://localhost:8080
+docker build -t edificaciones-store .
+docker run -p 8080:80 edificaciones-store   # http://localhost:8080
 ```
 
 ## What I learned

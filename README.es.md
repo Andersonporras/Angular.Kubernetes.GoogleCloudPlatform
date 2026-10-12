@@ -1,4 +1,4 @@
-# Inmuebles App — Frontend en Angular
+# Edificaciones Store — Frontend en Angular
 
 🇬🇧 [Read in English](README.md)
 
@@ -6,12 +6,18 @@ Aplicación web de inmuebles construida con **Angular**. Los usuarios crean una 
 
 Es un proyecto de aprendizaje. Lo construí para practicar los patrones que se usan en aplicaciones Angular medianas y grandes: manejo de estado con NgRx, módulos con carga diferida, guards de rutas, interceptores HTTP y subida de archivos a la nube.
 
+## Capturas
+
+![Listado de inmuebles](docs/screenshots/list.png)
+
+![Página de bienvenida](docs/screenshots/welcome.png)
+
 ## Funcionalidades
 
 - **Autenticación**: registro e inicio de sesión contra la API REST. El JWT se guarda y un interceptor HTTP lo agrega a cada petición.
 - **Protección de rutas**: `AuthGuard` bloquea las páginas privadas a quien no ha iniciado sesión, y `UnauthGuard` evita que un usuario con sesión entre al login o al registro.
 - **Inmuebles**: listado de propiedades y creación de nuevas con un formulario validado.
-- **Subida de imágenes**: un diálogo reutilizable (que se abre con una directiva) con recorte de imagen opcional, que guarda los archivos en Firebase Storage y devuelve la URL pública.
+- **Subida de imágenes**: un diálogo reutilizable (que se abre con una directiva) con recorte de imagen opcional, que guarda los archivos en Firebase Storage y devuelve la URL pública. Si una foto no existe o no carga, se muestra una imagen local de respaldo.
 - **Interfaz**: Angular Material, menú lateral responsive, spinner de carga, notificaciones y página 404.
 
 ## Tecnologías
@@ -77,8 +83,8 @@ La API del backend debe estar corriendo en la URL configurada para que funcionen
 El `Dockerfile` compila la app con Node 16 y sirve los archivos estáticos con nginx. `nginx.conf` envía todas las rutas a `index.html` para que el enrutamiento de Angular funcione al recargar la página.
 
 ```bash
-docker build -t inmuebles-app .
-docker run -p 8080:80 inmuebles-app   # http://localhost:8080
+docker build -t edificaciones-store .
+docker run -p 8080:80 edificaciones-store   # http://localhost:8080
 ```
 
 ## Qué aprendí
